@@ -1,15 +1,23 @@
 class MessageService {
 
-  create() {
-    return 'This is the service to create user.';
+  create(body) {
+    cano.log.info('create with body:', body);
   }
 
-  get() {
-    return 'This is the service to get users.';
+  get(query) {
+    cano.log.info('get with query', query);
   }
   
-  update() {
-    return 'This is the service to update user.';
+  getById(id) {
+    cano.log.info('getById with id:', id);
+  }
+
+  updateById(id, body) {
+    cano.log.info('updateById with id:', id, 'and body:', body);
+  }
+
+  deleteById(id) {
+    cano.log.info('deleteById with id:', id);
   }
 
 }
