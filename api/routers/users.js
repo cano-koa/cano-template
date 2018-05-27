@@ -1,10 +1,11 @@
 import Router from 'koa-router';
 const router = new Router({ prefix: '/users' });
 const { UserController } = cano.app.controllers;
+const { Auth } = cano.app.policies;
 
-router.post('/', UserController.create);
-router.get('/', UserController.get);
-router.put('/:id', UserController.update);
+router.post('/', Auth.apikey, UserController.create);
+router.get('/', Auth.apikey, UserController.get);
+router.put('/:id', Auth.apikey, UserController.update);
 
 /* router.post('/', ctx => {
   console.log('Here post!');

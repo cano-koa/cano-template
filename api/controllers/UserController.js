@@ -1,29 +1,40 @@
 const { MessageService } = cano.app.services;
+console.log('cano.app.models', cano.app.models);
+
+const { User } = cano.app.models;
 
 class UserController {
 
-  async create({ req, res }) {
-    const { body } = req;
+  async create({ request, response }) {
+    const { body } = request;
     cano.log.info('UserController.create.body', body);
+    const user = await User.create({
+      firstName: 'Ernesto',
+      lastName: 'Rojas',
+      email: 'ernesto20145@gmail.com',
+      phone: '+56 945472812',
+      username: 'ernestojr',
+      password: 'qwertyuiop',
+    });
     cano.log.info(MessageService.create());
-    res.status = 201;
-    res.body = body;
+    response.status = 201;
+    response.body = user;
   }
 
-  async get({ req, res }) {
-    const { query } = req;
+  async get({ request, response }) {
+    const { query } = request;
     cano.log.info('UserController.get.query', query);
     cano.log.info(MessageService.get());
-    res.status = 200;
-    res.body = query;
+    response.status = 200;
+    response.body = query;
   }
 
-  async update({ req, res }) {
-    const { body, params } = req;
+  async update({ request, response }) {
+    const { body, params } = request;
     cano.log.info('UserController.update.params', params);
     cano.log.info('UserController.update.body', body);
     cano.log.info(MessageService.update());
-    res.status(204);
+    response.status(204);
   }
 
 }
