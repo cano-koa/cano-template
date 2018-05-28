@@ -1,6 +1,4 @@
 const { MessageService } = cano.app.services;
-console.log('cano.app.models', cano.app.models);
-
 const { User } = cano.app.models;
 
 class UserController {

@@ -1,7 +1,12 @@
 {
-  "presets": ["es2015", "stage-2"],
-  "plugins": [],
-  "ignore": [
-    "core/Core.js"
-  ]
+    "presets": [["env", {
+        "targets": {
+            "node": "current"
+        } 
+    }]],
+    "plugins": [],
+    "ignore": [
+        "node_modules"
+    ]
+
 }
