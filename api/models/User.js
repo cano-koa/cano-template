@@ -1,6 +1,6 @@
-const MongooseModelClass = require('mongoose-model-class');
+import MongooseModel from 'mongoose-model-class';
 
-class User extends MongooseModelClass {
+class User extends MongooseModel {
   schema() {
     return {
       firstName: { type: String, require: true },

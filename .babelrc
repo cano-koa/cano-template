@@ -1,6 +1,12 @@
 {
-  "plugins": ["transform-es2015-modules-commonjs"],
-  "ignore": [
-    "node_modules"
-  ]
+    "presets": [["env", {
+        "targets": {
+            "node": "current"
+        }
+    }]],
+    "plugins": [],
+    "ignore": [
+        "node_modules"
+    ]
+
 }

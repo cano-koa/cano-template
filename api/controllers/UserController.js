@@ -1,5 +1,4 @@
 const { MessageService } = cano.app.services;
-
 const { User } = cano.app.models;
 
 class UserController {
