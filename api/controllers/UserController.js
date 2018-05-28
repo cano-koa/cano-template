@@ -5,34 +5,39 @@ class UserController {
 
   async create({ request, response }) {
     const { body } = request;
-    cano.log.info('UserController.create.body', body);
-    const user = await User.create({
-      firstName: 'Ernesto',
-      lastName: 'Rojas',
-      email: 'ernesto20145@gmail.com',
-      phone: '+56 945472812',
-      username: 'ernestojr',
-      password: 'qwertyuiop',
-    });
-    cano.log.info(MessageService.create());
+    const user = await User.create(body);
     response.status = 201;
     response.body = user;
+    MessageService.create(body);
   }
 
   async get({ request, response }) {
     const { query } = request;
-    cano.log.info('UserController.get.query', query);
-    cano.log.info(MessageService.get());
     response.status = 200;
-    response.body = query;
+    response.body = await User.get(query);
+    MessageService.get(query);
   }
 
-  async update({ request, response }) {
-    const { body, params } = request;
-    cano.log.info('UserController.update.params', params);
-    cano.log.info('UserController.update.body', body);
-    cano.log.info(MessageService.update());
-    response.status(204);
+  async getById({ params, response }) {
+    const { id } = params;
+    response.status = 200;
+    response.body = await User.getById(id);
+    MessageService.getById(id);
+  }
+
+  async updateById({ params, request, response }) {
+    const { id } = params;
+    const { body } = request;
+    await User.updateById(id, body);
+    response.status = 204;
+    MessageService.updateById(id, body)
+  }
+
+  async deleteById({ params, response }) {
+    const { id } = params;
+    await User.deleteById(id);
+    response.status = 204;
+    MessageService.deleteById(id);
   }
 
 }
