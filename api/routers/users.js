@@ -5,9 +5,9 @@ const { Auth } = cano.app.policies;
 
 router.post('/', Auth.apikey, UserController.create);
 router.get('/hello', Auth.apikey, UserController.hello);
-router.get('/', Auth.apikey, UserController.get);
-router.get('/:id', Auth.apikey, UserController.getById);
-router.put('/:id', Auth.apikey, UserController.updateById);
-router.delete('/:id', Auth.apikey, UserController.deleteById);
+router.get('/', Auth.bearer, Auth.apikey, UserController.get);
+router.get('/:id', Auth.bearer, Auth.apikey, UserController.getById);
+router.put('/:id', Auth.bearer, Auth.apikey, UserController.updateById);
+router.delete('/:id', Auth.bearer, Auth.apikey, UserController.deleteById);
 
 module.exports = router;

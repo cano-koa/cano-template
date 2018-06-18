@@ -15,6 +15,7 @@
     "dependencies": {
         "cano-cube-controllers": "https://github.com/cano-koa/cano-cube-controllers.git",
         "cano-cube-mongoose": "https://github.com/cano-koa/cano-cube-mongoose.git",
+        "cano-cube-passport": "https://github.com/cano-koa/cano-cube-passport",
         "cano-cube-policies": "https://github.com/cano-koa/cano-cube-policies.git",
         "cano-cube-routers": "https://github.com/cano-koa/cano-cube-routers.git",
         "cano-cube-services": "https://github.com/cano-koa/cano-cube-services.git",
@@ -23,6 +24,7 @@
         "koa-logger": "^3.2.0",
         "koa-router": "^7.4.0",
         "mongoose-model-class": "https://github.com/cano-koa/mongoose-model-class.git",
+        "passport-http-bearer": "^1.0.1",
         "winston": "^2.4.2"
     },
     "devDependencies": {

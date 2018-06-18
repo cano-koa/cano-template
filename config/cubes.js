@@ -3,6 +3,7 @@ import ServicesCube from 'cano-cube-services';
 import PoliciesCube from 'cano-cube-policies';
 import RoutersCube from 'cano-cube-routers';
 import MongooseCube from 'cano-cube-mongoose';
+import PassportCube from 'cano-cube-passport';
 
 
 module.exports = [
@@ -10,5 +11,6 @@ module.exports = [
     ServicesCube,
     ControllersCube,
     PoliciesCube,
-    RoutersCube
+    RoutersCube,
+    PassportCube,
 ];
