@@ -5,4 +5,10 @@ import RoutersCube from 'cano-cube-routers';
 import MongooseCube from 'cano-cube-mongoose';
 
 
-module.exports = [MongooseCube, ServicesCube, ControllersCube, PoliciesCube, RoutersCube];
+module.exports = [
+    MongooseCube,
+    ServicesCube,
+    ControllersCube,
+    PoliciesCube,
+    RoutersCube
+];

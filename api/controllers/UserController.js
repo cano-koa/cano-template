@@ -1,4 +1,3 @@
-const { MessageService } = cano.app.services;
 const { User } = cano.app.models;
 
 class UserController {
@@ -38,6 +37,14 @@ class UserController {
     await User.deleteById(id);
     response.status = 204;
     MessageService.deleteById(id);
+  }
+
+  async hello(ctx) {
+    ctx.status = 200;
+    ctx.body = {
+        message: 'hola mundo desde development',
+    };
+    MessageService.sayHello();
   }
 
 }

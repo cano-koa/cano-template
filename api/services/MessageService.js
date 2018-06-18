@@ -7,7 +7,7 @@ class MessageService {
   get(query) {
     cano.log.info('get with query', query);
   }
-  
+
   getById(id) {
     cano.log.info('getById with id:', id);
   }
@@ -20,6 +20,10 @@ class MessageService {
     cano.log.info('deleteById with id:', id);
   }
 
+  sayHello() {
+    cano.log.info('hola mundo');
+  }
+
 }
 
-module.exports = MessageService;
+export default MessageService;
