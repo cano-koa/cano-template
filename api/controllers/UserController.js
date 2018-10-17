@@ -1,50 +1,54 @@
-const { User } = cano.app.models;
+/* eslint no-underscore-dangle: 0 */
 
 class UserController {
 
-  async create({ request, response }) {
-    const { body } = request;
+  async changePassword({ request: { body }, params: { id }, response }) {
+    const user = await User.getById(id);
+    await user.changePassword(body);
+    response.status = 204;
+  }
+
+  async create({ request: { body }, response }) {
     const user = await User.create(body);
     response.status = 201;
-    response.body = user;
-    MessageService.create(body);
+    response.body = UtilService.pickUserField(user.toJSON());
   }
 
-  async get({ request, response }) {
-    const { query } = request;
+  async get({ request: { query }, response }) {
+    const { collection, pagination } = await User.get(query);
+    response.set('X-Pagination-Total-Count', pagination['X-0-Total-Count']);
+    response.set('X-Pagination-Limit', pagination['X-Pagination-Limit']);
     response.status = 200;
-    response.body = await User.get(query);
-    MessageService.get(query);
+    response.body = collection;
   }
 
-  async getById({ params, response }) {
-    const { id } = params;
+  async getById({ request: { query }, params: { id }, response }) {
     response.status = 200;
-    response.body = await User.getById(id);
-    MessageService.getById(id);
+    response.body = await User.getById(id, query);
   }
 
-  async updateById({ params, request, response }) {
-    const { id } = params;
-    const { body } = request;
-    await User.updateById(id, body);
+  async getMe({ state, response }) {
+    response.status = 200;
+    response.body = UtilService.pickUserField(state.user.toJSON());
+  }
+
+  async updateMePassword({ state: { user }, response, request: { body } }) {
+    await user.changePassword(body);
     response.status = 204;
-    MessageService.updateById(id, body)
   }
 
-  async deleteById({ params, response }) {
-    const { id } = params;
+  async updateById({ params: { id }, state: { user }, request: { body }, response }) {
+    if (id) {
+      await User.updateById(id, body);
+    } else {
+      await User.updateById(user._id, body);
+    }
+    response.status = 204;
+  }
+
+  async deleteById({ params: { id }, response }) {
     await User.deleteById(id);
     response.status = 204;
-    MessageService.deleteById(id);
-  }
-
-  async hello(ctx) {
-    ctx.status = 200;
-    ctx.body = {
-        message: 'hola mundo desde development',
-    };
-    MessageService.sayHello();
   }
 
 }
