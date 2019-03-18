@@ -1,6 +1,6 @@
 {
     "name": "cano-template",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "This is a template of cano framework.",
     "main": "server.js",
     "repository": "https://github.com/cano-koa/cano-template",
