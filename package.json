@@ -3,12 +3,12 @@
     "version": "1.2.0",
     "description": "This is a template of cano framework.",
     "main": "server.js",
-    "repository": "http://",
+    "repository": "https://github.com/cano-koa/cano-template",
     "author": "Ernesto Rojas <ernesto20145@gmail.com>",
     "license": "Apache-2.0",
     "scripts": {
         "start": "nodemon server.js --exec babel-node",
-        "build": "babel . --ignore node_modules -d dist",
+        "build": "rm -R dist && babel . --ignore node_modules -d dist",
         "serve": "node dist/server.js",
         "test": "mocha -R spec --compilers js:babel-core/register ./test/**/*.js"
     },
@@ -18,7 +18,7 @@
         "cano-cube-controllers": "^1.0.0",
         "cano-cube-error": "^2.0.1",
         "cano-cube-mongoose": "^2.0.2",
-        "cano-cube-passport": "^1.0.0",
+        "cano-cube-passport": "^1.0.1",
         "cano-cube-policies": "^1.0.0",
         "cano-cube-routers": "^1.0.1",
         "cano-cube-services": "^1.0.0",
