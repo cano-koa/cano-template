@@ -1,6 +1,6 @@
 {
     "name": "cano-template",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "This is a template of cano framework.",
     "main": "server.js",
     "repository": "https://github.com/cano-koa/cano-template",
@@ -17,7 +17,7 @@
         "bcryptjs": "^2.4.3",
         "cano-cube-controllers": "^1.0.0",
         "cano-cube-error": "^2.0.1",
-        "cano-cube-mongoose": "^2.0.2",
+        "cano-cube-mongoose": "^2.1.0",
         "cano-cube-passport": "^1.0.1",
         "cano-cube-policies": "^1.0.0",
         "cano-cube-routers": "^1.0.1",
