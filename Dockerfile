@@ -1,7 +1,7 @@
 FROM node:8.11.2-alpine
 
 # File Author / Maintainer
-MAINTAINER Antonio Mejias
+MAINTAINER Antonio Mejias / Ernesto Rojas
 
 #Setting enviroment variables
 ENV appDir /var/www/app
@@ -29,4 +29,4 @@ EXPOSE 20145
 
 # Staring App
 ENTRYPOINT ["pm2", "start"]
-CMD ["dist/server.js","--name=bunkey.user","--no-daemon"]
+CMD ["dist/server.js","--name=cano-tamplate","--no-daemon"]
