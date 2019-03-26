@@ -5,10 +5,10 @@ module.exports = {
 			adapter: 'mongoose',
 			options: {
 				poolSize: 10,
-        reconnectTries: 30,
-        reconnectInterval: 1000,
+				reconnectTries: 30,
+				reconnectInterval: 1000,
 			},
-    },
+		},
 	},
 	storeDefault: 'mongo',
 };
